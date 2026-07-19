@@ -1,23 +1,22 @@
-import { useState } from 'react'
-import Head from './Header.jsx'
-import About from './About.jsx'
-import './App.css'
-
-const person = {
-  name: 'Student Portfolio',
-  theme: {
-    backgroundColor: 'black',
-    color: 'pink',
-    padding: '20px',
-    borderRadius: '8px'
-  }
-};
+import Header from './components/Header';
+import About from './components/About';
+import Skills from './components/Skills';
+import Footer from './components/Footer';
 
 export default function App() {
+  const technicalSkills = ['RAG', 'Fine-tuning', 'Agentic-AI', 'MERN Stack'];
+  const currentYear = new Date().getFullYear();
+
   return (
-    <>
-      <Head />
-      <About />
-    </>
+    <div style={{ fontFamily: 'Arial, sans-serif', color: '#333', margin: 0 }}>
+      <Header />
+      
+      <main>
+        <About />
+        <Skills skillList={technicalSkills} />
+      </main>
+      
+      <Footer year={currentYear} />
+    </div>
   );
 }
